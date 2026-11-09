@@ -1,0 +1,378 @@
+[
+  {
+    "check": "ingest:examples/service-policy.md",
+    "result": {
+      "summary": "Тариф «Орбита» стоит 7300 рублей в месяц, заявку обрабатывают за 3 рабочих дня, возврат можно запросить в течение 14 календарных дней после оплаты и получить в течение 5 рабочих дней после одобрения, а поддержка доступна по будням с 09:00 до 18:00 по московскому времени по адресу help@example.org.",
+      "chunks": 4
+    }
+  },
+  {
+    "check": "ingest:examples/service.docx",
+    "result": {
+      "summary": "План Aurora стоит 9 200 рублей в месяц, а техническое подключение занимает 6 рабочих дней.",
+      "chunks": 2
+    }
+  },
+  {
+    "check": "ingest:examples/policy.pdf",
+    "result": {
+      "summary": "Для проекта Lighthouse Demo Equipment гарантия составляет 19 календарных дней, обработка замены — 4 рабочих дня; данные вымышленные.",
+      "chunks": 2
+    }
+  },
+  {
+    "check": "ingest:examples/scanned-policy.pdf",
+    "result": {
+      "summary": "Материал для тестирования OCR содержит вымышленную складскую инструкцию с кодом COBALT-428 и временем открытия 10:30 утра.",
+      "chunks": 4
+    }
+  },
+  {
+    "check": "duplicate",
+    "result": {
+      "before": 12,
+      "after": 12,
+      "same_count": true
+    }
+  },
+  {
+    "check": "Сколько стоит тариф Орбита и за сколько дней обрабатывается заявка?",
+    "result": {
+      "answer": "Тариф «Орбита» стоит 7 300 рублей в месяц. Заявку обрабатывают за 3 рабочих дня. [service-policy.md, фрагмент 1]",
+      "sources": [
+        {
+          "chunk": 1,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Тариф и сроки"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 2,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Возврат"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 1,
+          "file_id": "126793108023ccb445e6d679050acb4dbfb3e6d9fb8d49aef5a70b55d5482bd6",
+          "filename": "service.docx",
+          "headings": [
+            "Fictional Aurora service"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 3,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Поддержка"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 1,
+          "file_id": "cfd53c57c3d4f5488aed59abfdc94ea18224f6267535437648e8814c481e55e4",
+          "filename": "policy.pdf",
+          "headings": [
+            "Fictional equipment policy"
+          ],
+          "pages": "1"
+        }
+      ],
+      "calls": []
+    }
+  },
+  {
+    "check": "Сколько стоит Aurora и сколько занимает onboarding?",
+    "result": {
+      "answer": "Тариф Aurora стоит 9 200 рублей в месяц, onboarding занимает 6 рабочих дней. [service.docx, фрагменты 1–2]",
+      "sources": [
+        {
+          "chunk": 1,
+          "file_id": "126793108023ccb445e6d679050acb4dbfb3e6d9fb8d49aef5a70b55d5482bd6",
+          "filename": "service.docx",
+          "headings": [
+            "Fictional Aurora service"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 2,
+          "file_id": "126793108023ccb445e6d679050acb4dbfb3e6d9fb8d49aef5a70b55d5482bd6",
+          "filename": "service.docx",
+          "headings": [
+            "Fictional Aurora service"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 1,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Тариф и сроки"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 3,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Поддержка"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 1,
+          "file_id": "cfd53c57c3d4f5488aed59abfdc94ea18224f6267535437648e8814c481e55e4",
+          "filename": "policy.pdf",
+          "headings": [
+            "Fictional equipment policy"
+          ],
+          "pages": "1"
+        }
+      ],
+      "calls": []
+    }
+  },
+  {
+    "check": "Какой срок гарантии на оборудование?",
+    "result": {
+      "answer": "Срок гарантии на оборудование — 19 календарных дней. [policy.pdf, фрагмент 1, стр. 1]",
+      "sources": [
+        {
+          "chunk": 1,
+          "file_id": "cfd53c57c3d4f5488aed59abfdc94ea18224f6267535437648e8814c481e55e4",
+          "filename": "policy.pdf",
+          "headings": [
+            "Fictional equipment policy"
+          ],
+          "pages": "1"
+        },
+        {
+          "chunk": 2,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Возврат"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 2,
+          "file_id": "126793108023ccb445e6d679050acb4dbfb3e6d9fb8d49aef5a70b55d5482bd6",
+          "filename": "service.docx",
+          "headings": [
+            "Fictional Aurora service"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 1,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Тариф и сроки"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 3,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Поддержка"
+          ],
+          "pages": ""
+        }
+      ],
+      "calls": []
+    }
+  },
+  {
+    "check": "Какой секретный тестовый код указан в отсканированной инструкции?",
+    "result": {
+      "answer": "Секретный тестовый код — **COBALT-428**. [scanned-policy.pdf, фрагмент 2, стр. 1]",
+      "sources": [
+        {
+          "chunk": 2,
+          "file_id": "81c0e5a14ecb4b03aa4843aff094aa1a526f38125b07b32ae512a99f9caf6218",
+          "filename": "scanned-policy.pdf",
+          "headings": [],
+          "pages": "1"
+        },
+        {
+          "chunk": 4,
+          "file_id": "81c0e5a14ecb4b03aa4843aff094aa1a526f38125b07b32ae512a99f9caf6218",
+          "filename": "scanned-policy.pdf",
+          "headings": [],
+          "pages": "1"
+        },
+        {
+          "chunk": 2,
+          "file_id": "cfd53c57c3d4f5488aed59abfdc94ea18224f6267535437648e8814c481e55e4",
+          "filename": "policy.pdf",
+          "headings": [
+            "Fictional equipment policy"
+          ],
+          "pages": "1"
+        },
+        {
+          "chunk": 4,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Ограничения"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 1,
+          "file_id": "81c0e5a14ecb4b03aa4843aff094aa1a526f38125b07b32ae512a99f9caf6218",
+          "filename": "scanned-policy.pdf",
+          "headings": [],
+          "pages": "1"
+        }
+      ],
+      "calls": []
+    }
+  },
+  {
+    "check": "Какой адрес склада указан в документах?",
+    "result": {
+      "answer": "В документах адрес склада не указан. В `service-policy.md` сказано, что информации об адресе склада нет [service-policy.md, фрагмент 4].",
+      "sources": [
+        {
+          "chunk": 4,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Ограничения"
+          ],
+          "pages": ""
+        },
+        {
+          "chunk": 3,
+          "file_id": "81c0e5a14ecb4b03aa4843aff094aa1a526f38125b07b32ae512a99f9caf6218",
+          "filename": "scanned-policy.pdf",
+          "headings": [],
+          "pages": "1"
+        },
+        {
+          "chunk": 1,
+          "file_id": "81c0e5a14ecb4b03aa4843aff094aa1a526f38125b07b32ae512a99f9caf6218",
+          "filename": "scanned-policy.pdf",
+          "headings": [],
+          "pages": "1"
+        },
+        {
+          "chunk": 1,
+          "file_id": "cfd53c57c3d4f5488aed59abfdc94ea18224f6267535437648e8814c481e55e4",
+          "filename": "policy.pdf",
+          "headings": [
+            "Fictional equipment policy"
+          ],
+          "pages": "1"
+        },
+        {
+          "chunk": 1,
+          "file_id": "7b19ca1a689d96b969a69733d1585e23987cb0ec783db74ba99457fd6ce48039",
+          "filename": "service-policy.md",
+          "headings": [
+            "Регламент учебного сервиса «Маяк»",
+            "Тариф и сроки"
+          ],
+          "pages": ""
+        }
+      ],
+      "calls": []
+    }
+  },
+  {
+    "check": "isolation",
+    "result": {
+      "other_owner_documents": 0
+    }
+  },
+  {
+    "check": "Расскажи случайный факт о кошках.",
+    "result": {
+      "answer": "Некоторые кошки выживали после падений с высоты более 20 метров. Им помогает рефлекс выравнивания: кошка ориентируется в пространстве и старается приземлиться на лапы. Источник: [catfact.ninja](https://catfact.ninja/fact).",
+      "calls": [
+        {
+          "name": "cat_fact",
+          "arguments": {}
+        }
+      ],
+      "photos": 0,
+      "tool_results": [
+        {
+          "name": "cat_fact",
+          "result": {
+            "ok": true,
+            "fact": "Some cats have survived falls of over 65 feet (20 meters), due largely to their “righting reflex.” The eyes and balance organs in the inner ear tell it where it is in space so the cat can land on its feet. Even cats without a tail have this ability.",
+            "source": "https://catfact.ninja/fact"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "check": "Какая сейчас погода в Москве?",
+    "result": {
+      "answer": "В Москве сейчас **+2,5 °C**, ощущается как **−0,8 °C**. Ветер — **8,6 км/ч**, облачно. Измерение: **8 ноября 2026 года, 11:15** по московскому времени. Источник: [Open-Meteo](https://open-meteo.com/).",
+      "calls": [
+        {
+          "name": "weather",
+          "arguments": {
+            "city": "Москва"
+          }
+        }
+      ],
+      "photos": 0,
+      "tool_results": []
+    }
+  },
+  {
+    "check": "Покажи случайную собаку и проанализируй фото.",
+    "result": {
+      "answer": "Вот случайная собака — фото приложено. Это крупная чёрно-белая собака с длинными висячими ушами и белой полосой на морде. Похожа на английского спрингер-спаниеля, но породу по одному фото точно не определить. [Источник фото: Dog CEO API]",
+      "calls": [
+        {
+          "name": "analyze_dog",
+          "arguments": {}
+        }
+      ],
+      "photos": 1,
+      "tool_results": [
+        {
+          "name": "analyze_dog",
+          "result": {
+            "ok": true,
+            "description": "На фото крупная чёрно-белая собака с длинными висячими ушами, белой полосой на морде и пятнистой шерстью на лапах. Похожа на английского спрингер-спаниеля, но по одному снимку породу точно не определить: возможно, это метис. Английских спрингер-спаниелей вывели в Великобритании как охотничьих собак — они вспугивали дичь и помогали находить её после выстрела.",
+            "source": "https://images.dog.ceo/breeds/springer-english/n02102040_995.jpg",
+            "photo_attached": true
+          }
+        }
+      ]
+    }
+  }
+]
